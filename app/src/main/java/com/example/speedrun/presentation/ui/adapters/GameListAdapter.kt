@@ -6,8 +6,9 @@ import android.view.ViewGroup
 import com.example.speedrun.R
 import com.example.speedrun.domain.model.GameData
 import com.example.speedrun.presentation.ui.adapters.holders.GameHolder
+import com.example.speedrun.presentation.ui.adapters.holders.OnGameSelected
 
-class GameListAdapter(private val items: List<GameData>) :
+class GameListAdapter(private val items: List<GameData>, private val listener: OnGameSelected) :
     RecyclerView.Adapter<GameHolder>() {
 
 
@@ -20,7 +21,7 @@ class GameListAdapter(private val items: List<GameData>) :
     }
 
     override fun onBindViewHolder(holder: GameHolder, position: Int) {
-        holder.bind(items[position])
+        holder.bind(items[position], listener)
     }
 
     override fun getItemCount(): Int {

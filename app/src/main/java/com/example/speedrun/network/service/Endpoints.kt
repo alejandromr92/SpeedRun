@@ -5,5 +5,6 @@ interface Endpoints {
         const val BASE_URL = "https://www.speedrun.com/api/v1/"
         const val GAMES = "games"
         const val RUN = "runs"
+        const val USERS = "users/{userId}"
     }
 }

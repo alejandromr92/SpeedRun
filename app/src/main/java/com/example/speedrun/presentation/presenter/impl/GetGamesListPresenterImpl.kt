@@ -12,10 +12,10 @@ class GetGamesListPresenterImpl(
 
     override fun getGamesList() {
         view.showProgress()
-        interactor.execute(::onBitcoinMarketPriceRetrieved, ::onBitcoinMarketPriceRetrievingError)
+        interactor.execute(::onGamesListRetrieved, ::onGamesListRetrievingError)
     }
 
-    private fun onBitcoinMarketPriceRetrieved(gamesList: List<GameData>){
+    private fun onGamesListRetrieved(gamesList: List<GameData>){
         if (gamesList.isNullOrEmpty()){
             view.onGamesListRetrievingError()
         } else {
@@ -23,7 +23,7 @@ class GetGamesListPresenterImpl(
         }
     }
 
-    private fun onBitcoinMarketPriceRetrievingError(throwable: Throwable){
+    private fun onGamesListRetrievingError(throwable: Throwable){
         view.onGamesListRetrievingError()
     }
 }

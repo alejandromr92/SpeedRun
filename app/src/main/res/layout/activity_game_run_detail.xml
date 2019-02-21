@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+    >
+
+    <ImageView
+            android:id="@+id/game_detail_logo"
+
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+
+            android:src="@mipmap/ic_launcher"
+
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+    />
+
+    <TextView
+            android:id="@+id/game_detail_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            app:layout_constraintStart_toEndOf="@id/game_detail_logo"
+            app:layout_constraintTop_toTopOf="@id/game_detail_logo"
+            app:layout_constraintBottom_toBottomOf="@id/game_detail_logo"
+
+            android:layout_marginStart="10dp"
+
+            tools:text="Game title"
+    />
+
+    <TextView
+            android:id="@+id/game_detail_player"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            app:layout_constraintTop_toBottomOf="@id/game_detail_logo"
+            app:layout_constraintStart_toStartOf="@id/game_detail_logo"
+
+            android:layout_marginTop="10dp"
+
+            tools:text="Kelzace"
+    />
+
+    <TextView
+            android:id="@+id/game_detail_time"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            app:layout_constraintTop_toBottomOf="@id/game_detail_player"
+            app:layout_constraintStart_toStartOf="@id/game_detail_player"
+
+            tools:text="4m 56s"
+
+    />
+
+    <Button
+            android:id="@+id/game_detail_view_speedrun_btn"
+
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            app:layout_constraintTop_toBottomOf="@id/game_detail_time"
+
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+
+            android:text="View speedrun"
+    />
+
+</android.support.constraint.ConstraintLayout>

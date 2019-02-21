@@ -8,10 +8,16 @@ import kotlinx.android.synthetic.main.item_game.view.*
 
 class GameHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
-    fun bind(holder: GameData) = with(itemView){
+    fun bind(holder: GameData, listener: OnGameSelected) = with(itemView){
 
         item_game_logo.load(holder.logoUri)
 
         item_game_title.text = holder.title
+
+        item_game.setOnClickListener { listener.onGameSelected(holder) }
     }
+}
+
+interface OnGameSelected {
+    fun onGameSelected(game: GameData)
 }

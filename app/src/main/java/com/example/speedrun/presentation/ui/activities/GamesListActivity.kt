@@ -7,16 +7,18 @@ import android.view.View
 import com.example.speedrun.R
 import com.example.speedrun.domain.interactor.impl.GetGamesListInteractorImpl
 import com.example.speedrun.domain.model.GameData
+import com.example.speedrun.presentation.extensions.GameDetailIntent
 import com.example.speedrun.presentation.presenter.GetGamesListPresenter
 import com.example.speedrun.presentation.presenter.impl.GetGamesListPresenterImpl
 import com.example.speedrun.presentation.ui.adapters.GameListAdapter
+import com.example.speedrun.presentation.ui.adapters.holders.OnGameSelected
 import com.example.speedrun.utils.LoggerUtils
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_games_list.*
 
 class GamesListActivity : BaseActivity(),
-GetGamesListPresenter.View {
+GetGamesListPresenter.View, OnGameSelected {
 
     private lateinit var getGamesListPresenter: GetGamesListPresenter
 
@@ -53,7 +55,7 @@ GetGamesListPresenter.View {
         val dividerItemDecoration = DividerItemDecoration(games_recyclerview.context, layoutManager.orientation)
         games_recyclerview.addItemDecoration(dividerItemDecoration)
 
-        this.gameListAdapter = GameListAdapter(gamesList as List<GameData>)
+        this.gameListAdapter = GameListAdapter(gamesList as List<GameData>, this)
         games_recyclerview.adapter = gameListAdapter
 
     }
@@ -73,6 +75,11 @@ GetGamesListPresenter.View {
         } else {
             //TODO
         }
+    }
+
+    //Listener
+    override fun onGameSelected(game: GameData) {
+        startActivity(this.GameDetailIntent(game))
     }
 
     // Callbacks

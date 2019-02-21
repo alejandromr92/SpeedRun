@@ -24,11 +24,28 @@ data class GameCover(
     val uri: String
 )
 
-//TODO heredar de GameDataDto ^
+data class GameRunResponseDto(
+    val data: List<GameRunDto>
+)
+
 data class GameRunDto(
-    val title: String,
-    val logoUri: String,
-    val playerName: String,
-    val runTime: String,
-    val speedrunURL: String
+    val videos: GameRunVideoDto,
+    val times: GameRunTimeDto,
+    val players: List<GameRunPlayer>
+)
+
+data class GameRunVideoDto(
+    val links: List<GameRunLink>
+)
+
+data class GameRunLink(
+    val uri: String
+)
+
+data class GameRunTimeDto(
+    val primary: String
+)
+
+data class GameRunPlayer(
+    val id: String
 )
